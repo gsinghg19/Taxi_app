@@ -1,6 +1,7 @@
 import { StyleSheet, Text, View, SafeAreaView, Image } from "react-native";
 import React from "react";
 import tw from "twrnc";
+import NavOptions from "../components/NavOptions";
 
 const HomeScreen = () => {
   return (
@@ -9,9 +10,10 @@ const HomeScreen = () => {
         <Image
           style={{ width: 100, height: 100, resizeMode: "contain" }}
           source={{
-            uri: "https://as2.ftcdn.net/v2/jpg/00/55/55/17/1000_F_55551760_YYsS1oHT2PnzCjBvJucTPqttj0tkHCcf.jpg",
+            uri: "https://as1.ftcdn.net/v2/jpg/03/51/17/28/1000_F_351172814_sX7DmvFaLYnj6E2iCXhH8aj51rAxJKS2.jpg",
           }}
         />
+        <NavOptions />
       </View>
     </SafeAreaView>
   );

@@ -4,16 +4,19 @@ import { Provider } from "react-redux";
 import { store } from "./store";
 import HomeScreen from "./screens/HomeScreen";
 import { SafeAreaProvider } from "react-native-safe-area-context";
+import { NavigationContainer } from '@react-navigation/native';
 
 //TODO 2: Set up tailwinds
 
 export default function App() {
   return (
+    <NavigationContainer>
     <Provider store={store}>
       <SafeAreaProvider>
         <HomeScreen />
       </SafeAreaProvider>
     </Provider>
+    </NavigationContainer>
   );
 }
 

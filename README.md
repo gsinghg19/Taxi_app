@@ -15,6 +15,9 @@ Dependencies used are:
 - Expo
 - React-redux
 - twrnc (Tailwind react native classes)
+- Google Maps API
+- Google Places API
+- Google Distance Matrix API
 
 To run this app locally on your machine, pull down this repo and run
 

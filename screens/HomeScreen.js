@@ -37,6 +37,8 @@ const HomeScreen = () => {
             key: Google_Map_Api_Key,
             language: "en",
           }}
+          debounce={400}
+          enablePoweredByContainer={false}
         />
         <NavOptions />
       </View>

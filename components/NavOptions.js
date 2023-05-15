@@ -5,10 +5,12 @@ import {
   TouchableOpacity,
   View,
   Image,
+  Button,
 } from "react-native";
 import React from "react";
 import tw from "twrnc";
 import { Icon } from "@rneui/themed";
+import { useNavigation } from "@react-navigation/native";
 
 //create data array with 1 object for a ride and one object for food orders.Just like in the uber app.
 
@@ -31,13 +33,18 @@ const data = [
 
 //implement above array in a flatlist.
 const NavOptions = () => {
+  const navigation = useNavigation();
   return (
     <FlatList
       data={data}
       keyExtractor={(item) => item.id}
       horizontal
       renderItem={({ item }) => (
-        <TouchableOpacity style={tw`p-2 pl-4 pb-8 pt-5 bg-gray-100 m-2 w-40`}>
+        <TouchableOpacity
+          style={tw`p-2 pl-4 pb-8 pt-5 bg-gray-100 m-2 w-40`}
+          title="MapScreen"
+          onPress={() => navigation.navigate(item.screen)}
+        >
           <View>
             <Image
               source={{ uri: item.image }}

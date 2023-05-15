@@ -7,7 +7,7 @@ A taxi booking app, in the same vain as Uber.
 Dependencies used are:
 
 - Node.js v18.0.0
-- React-Native
+- React-native
 - React-native-elements
 - React-native-vector-icons
 - React-navigation
@@ -18,6 +18,7 @@ Dependencies used are:
 - Google Maps API
 - Google Places API
 - Google Distance Matrix API
+- React-native-dotenv
 
 To run this app locally on your machine, pull down this repo and run
 

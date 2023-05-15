@@ -31,3 +31,11 @@ After dependencies have installed run the following command to run the app:
 ```
 npx expo start
 ```
+
+If you recieve an error message such as; `This is taking much longer than it should`, run expo in tunnel connection mode via the command;
+
+```
+npx expo start --tunnel
+```
+
+and download the relevant npm module, when pormpted; `@expo/ngrok@^4.1.0`

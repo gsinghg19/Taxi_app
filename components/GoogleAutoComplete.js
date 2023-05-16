@@ -31,7 +31,7 @@ const GoogleAutoComplete = () => {
         );
         dispatch(setDestination(null));
         // console.log(data);
-        console.log(details);
+        //console.log(details);
       }}
       query={{
         key: Google_Map_Api_Key,

@@ -1,12 +1,4 @@
-import {
-  FlatList,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-  Image,
-  Button,
-} from "react-native";
+import { FlatList, Text, TouchableOpacity, View, Image } from "react-native";
 import React from "react";
 import tw from "twrnc";
 import { Icon } from "@rneui/themed";
@@ -50,7 +42,7 @@ const NavOptions = () => {
           onPress={() => navigation.navigate(item.screen)}
           disabled={!origin}
         >
-          <View>
+          <View style={tw`${!origin && "opacity-10"}`}>
             <Image
               source={{ uri: item.image }}
               style={{ width: 120, height: 120, resizeMode: "contain" }}

@@ -26,6 +26,12 @@ const Map = () => {
           origin={origin.description}
           destination={destination.description}
           apikey={Google_Map_Api_Key}
+          strokeWidth={2}
+          strokeColor="blue"
+          onReady={(result) => {
+            console.log(`Distance: ${result.distance} km.`);
+            console.log(`Duration: ${result.duration} mins.`);
+          }}
         />
       )}
 
@@ -41,6 +47,21 @@ const Map = () => {
           identifier="origin"
         />
       )}
+
+      {/*================================================== UNDER CONSTRUCTION ========================= */}
+      {/* TODO: fix destination pin. clikcing marker deosnt give destination details. it closes the app. */}
+      {/* {destination?.location && (
+        <Marker
+          coordinate={{
+            latitude: destination.location.lat,
+            longitude: destination.location.lng,
+          }}
+          title="Destination"
+          description={destination.location}
+          identifier="destination"
+        />
+      )} */}
+      {/*================================================== UNDER CONSTRUCTION ========================= */}
     </MapView>
   );
 };

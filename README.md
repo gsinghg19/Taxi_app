@@ -12,13 +12,14 @@ Dependencies used are:
 - React-native-vector-icons
 - React-navigation
 - React-native-screens
+- React-native-maps-directions
+- React-native-dotenv
 - Expo
 - React-redux
 - twrnc (Tailwind react native classes)
 - Google Maps API
 - Google Places API
 - Google Distance Matrix API
-- React-native-dotenv
 
 To run this app locally on your machine, pull down this repo and run
 

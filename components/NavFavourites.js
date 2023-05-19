@@ -40,9 +40,6 @@ const NavFavData = [
 ];
 
 const NavFavourites = () => {
-  const origin = useSelector(selectOrigin);
-  const destination = useSelector(selectDestination);
-
   return (
     <FlatList
       data={NavFavData}

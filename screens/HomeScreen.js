@@ -3,6 +3,7 @@ import React from "react";
 import tw from "twrnc";
 import NavOptions from "../components/NavOptions";
 import GoogleAutoComplete from "../components/GoogleAutoComplete";
+import NavFavourites from "../components/NavFavourites";
 
 const HomeScreen = () => {
   return (
@@ -16,6 +17,7 @@ const HomeScreen = () => {
         />
         <GoogleAutoComplete />
         <NavOptions />
+        <NavFavourites />
       </View>
     </SafeAreaView>
   );

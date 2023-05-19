@@ -20,18 +20,6 @@ const NavFavData = [
     location: "4242 Testing Road",
   },
   {
-    id: "3",
-    title: "Favourite 1 ",
-    description: "Your first favourite destination",
-    icon: "star",
-  },
-  {
-    id: "4",
-    title: "Favourite 2",
-    description: "Your second favourite destination",
-    icon: "star",
-  },
-  {
     id: "5",
     title: "Last Destination",
     description: "Last destination visited",
@@ -44,6 +32,7 @@ const NavFavourites = () => {
     <FlatList
       data={NavFavData}
       keyExtractor={(item) => item.id}
+      ItemSeparatorComponent={() => <View style={tw`bg-gray-100 h-0.3`} />}
       renderItem={({ item: { id, title, description, icon, location } }) => (
         <TouchableOpacity style={tw`p-3 items-center flex-row`}>
           <Icon

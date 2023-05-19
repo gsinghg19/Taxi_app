@@ -1,24 +1,24 @@
-import { StyleSheet, Text, View } from "react-native";
+import { FlatList, SectionList, StyleSheet, Text, View } from "react-native";
 import React from "react";
 import tw from "twrnc";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
 import { Google_Map_Api_Key } from "@env";
-import { KeyboardAvoidingView } from "react-native";
 import { setDestination } from "../slices/navSlice";
 import { useNavigation } from "@react-navigation/native";
 import { useDispatch } from "react-redux";
+import NavFavourites from "./NavFavourites";
 
 const NavigateCard = () => {
   const dispatch = useDispatch();
   const navigation = useNavigation();
 
   return (
-    <KeyboardAvoidingView
-      behavior={Platform.OS === "ios" ? "padding" : "height"}
-      style={tw`flex-1`}
-    >
-      <SafeAreaView style={tw`bg-white flex-1`}>
+    <SafeAreaView style={tw`bg-white flex-1`}>
+      <View
+        behavior={Platform.OS === "ios" ? "padding" : "height"}
+        style={tw`flex-1`}
+      >
         <Text style={tw`text-center py-10 text-xl`}>
           Hello, where too today?
         </Text>
@@ -44,8 +44,9 @@ const NavigateCard = () => {
             }}
           />
         </View>
-      </SafeAreaView>
-    </KeyboardAvoidingView>
+        <NavFavourites />
+      </View>
+    </SafeAreaView>
   );
 };
 

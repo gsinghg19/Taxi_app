@@ -9,7 +9,7 @@ const GoogleAutoComplete = () => {
 
   return (
     <GooglePlacesAutocomplete
-      placeholder="Where too?"
+      placeholder="Current location"
       minLength={2}
       autoFocus={false}
       returnKeyType={"search"}

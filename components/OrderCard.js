@@ -25,7 +25,7 @@ const NavigateCard = () => {
         <View style={tw`flex-shrink border-t border-gray-200`}>
           <GooglePlacesAutocomplete
             styles={inputBoxStyles}
-            placeholder="Where too?"
+            placeholder="what to eat?"
             nearbyPlacesAPI="GooglePlacesSearch"
             enablePoweredByContainer={false}
             debounce={400}
@@ -40,7 +40,7 @@ const NavigateCard = () => {
                   description: data.description,
                 })
               );
-              navigation.navigate("RideOptionsCard");
+              navigation.navigate("RestaurantCard");
             }}
           />
         </View>

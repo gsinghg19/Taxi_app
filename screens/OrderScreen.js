@@ -3,6 +3,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import tw from "twrnc";
 import OrderCard from "../components/OrderCard";
+import RestaurantCard from "../components/RestaurantCard";
 
 const OrderScreen = () => {
   const Stack = createNativeStackNavigator();
@@ -15,6 +16,11 @@ const OrderScreen = () => {
           options={{
             headerShown: false,
           }}
+        />
+        <Stack.Screen
+          name="RestaurantCard"
+          component={RestaurantCard}
+          options={{ headerShown: false }}
         />
       </Stack.Navigator>
     </SafeAreaView>

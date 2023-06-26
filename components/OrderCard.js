@@ -9,7 +9,7 @@ import { setDestination } from "../slices/navSlice";
 import { useNavigation } from "@react-navigation/native";
 import { useDispatch } from "react-redux";
 
-const NavigateCard = () => {
+const OrderCard = () => {
   const dispatch = useDispatch();
   const navigation = useNavigation();
 
@@ -19,7 +19,7 @@ const NavigateCard = () => {
       style={tw`flex-1`}
     >
       <SafeAreaView style={tw`bg-white flex-1`}>
-        <Text style={tw`text-center py-10 text-xl`}>
+        <Text style={tw`text-center py-10 text-xl`}> 
           What do you want to eat?
         </Text>
         <View style={tw`flex-shrink border-t border-gray-200`}>
@@ -49,7 +49,7 @@ const NavigateCard = () => {
   );
 };
 
-export default NavigateCard;
+export default OrderCard;
 
 const inputBoxStyles = StyleSheet.create({
   container: {

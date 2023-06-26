@@ -19,12 +19,6 @@ const NavFavData = [
     icon: "home",
     location: "4242 Testing Road",
   },
-  {
-    id: "5",
-    title: "Last Destination",
-    description: "Last destination visited",
-    icon: "car",
-  },
 ];
 
 const NavFavourites = () => {

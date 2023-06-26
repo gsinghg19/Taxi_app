@@ -1,4 +1,11 @@
-import { FlatList, SectionList, StyleSheet, Text, View } from "react-native";
+import {
+  FlatList,
+  SectionList,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import React from "react";
 import tw from "twrnc";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -8,6 +15,8 @@ import { setDestination } from "../slices/navSlice";
 import { useNavigation } from "@react-navigation/native";
 import { useDispatch } from "react-redux";
 import NavFavourites from "./NavFavourites";
+import { Icon } from "@rneui/themed";
+import RideOptionsCard from "./RideOptionsCard";
 
 const NavigateCard = () => {
   const dispatch = useDispatch();
@@ -15,36 +24,59 @@ const NavigateCard = () => {
 
   return (
     <SafeAreaView style={tw`bg-white flex-1`}>
+      <Text style={tw`text-center py-5 text-xl`}>Hello, where too today?</Text>
+      <View style={tw`flex-shrink border-t border-gray-200`}>
+        <GooglePlacesAutocomplete
+          styles={inputBoxStyles}
+          placeholder="Where too?"
+          nearbyPlacesAPI="GooglePlacesSearch"
+          enablePoweredByContainer={false}
+          debounce={400}
+          query={{ key: Google_Map_Api_Key, language: "en" }}
+          fetchDetails={true}
+          returnKeytype={"search"}
+          minLength={2}
+          onPress={(data, details = null) => {
+            dispatch(
+              setDestination({
+                location: details.geometry.location,
+                description: data.description,
+              })
+            );
+            navigation.navigate("RideOptionsCard");
+          }}
+        />
+      </View>
+      {/* <NavFavourites /> */}
+
       <View
-        behavior={Platform.OS === "ios" ? "padding" : "height"}
-        style={tw`flex-1`}
+        style={tw`flex-row bg-white justify-evenly py-2 mt-auto border-t border-gray-100`}
       >
-        <Text style={tw`text-center py-10 text-xl`}>
-          Hello, where too today?
-        </Text>
-        <View style={tw`flex-shrink border-t border-gray-200`}>
-          <GooglePlacesAutocomplete
-            styles={inputBoxStyles}
-            placeholder="Where too?"
-            nearbyPlacesAPI="GooglePlacesSearch"
-            enablePoweredByContainer={false}
-            debounce={400}
-            query={{ key: Google_Map_Api_Key, language: "en" }}
-            fetchDetails={true}
-            returnKeytype={"search"}
-            minLength={2}
-            onPress={(data, details = null) => {
-              dispatch(
-                setDestination({
-                  location: details.geometry.location,
-                  description: data.description,
-                })
-              );
-              navigation.navigate("RideOptionsCard");
-            }}
+        <TouchableOpacity
+          style={tw`flex flex-row bg-black w-22 px-4 py-3 rounded-full ml-4`}
+          onPress={() => navigation.navigate("RideOptionsCard")}
+        >
+          <Icon
+            name="car"
+            type="font-awesome"
+            size={16}
+            color="white"
+            style={tw`mr-2`}
           />
-        </View>
-        <NavFavourites />
+          <Text style={tw`text-white text-center`}>Rides</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={tw`flex flex-row bg-white rounded-full ml-4 px-4 py-3`}
+        >
+          <Icon
+            name="fast-food-sharp"
+            type="ionicon"
+            size={16}
+            color="black"
+            style={tw`mr-2`}
+          />
+          <Text style={tw`text-black text-center`}>Eat</Text>
+        </TouchableOpacity>
       </View>
     </SafeAreaView>
   );

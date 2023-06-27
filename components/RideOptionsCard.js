@@ -6,11 +6,13 @@ import { useNavigation } from "@react-navigation/native";
 import { useState } from "react";
 import { Icon } from "@rneui/themed";
 import NavigateCard from "./NavigateCard";
+import { selectTravelTimeInformation } from "../slices/navSlice";
+import { useDispatch, useSelector } from "react-redux";
 
 const priceData = [
   {
     id: "1",
-    title: "standard fare",
+    title: "standard",
     Additional_Information: "Maximum 4 per vehicle.",
     screen: "PaymentScreen",
     multiplier: 1,
@@ -19,7 +21,7 @@ const priceData = [
   },
   {
     id: "2",
-    title: "premium fare",
+    title: "premium",
     Additional_Information: "Maximum 4 per vehicle.",
     screen: "PaymentScreen",
     multiplier: 1.5,
@@ -28,7 +30,7 @@ const priceData = [
   },
   {
     id: "3",
-    title: "Large groups fare ",
+    title: "Large groups",
     Additional_Information: "Maximum 10 per vehicle.",
     screen: "PaymentScreen",
     multiplier: 2.4,
@@ -40,6 +42,8 @@ const priceData = [
 const RideOptionsCard = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [selected, setSelected] = useState(null);
+  const dispatch = useDispatch();
+  const timeAndDistanceInfo = useSelector(selectTravelTimeInformation);
 
   const navigation = useNavigation();
   return (
@@ -70,7 +74,8 @@ const RideOptionsCard = () => {
             />
             <View>
               <Text style={tw`font-semibold text-lg`}>{title}</Text>
-              <Text>Travel time will go here...</Text>
+              <Text>{timeAndDistanceInfo?.duration.text}</Text>
+              <Text>{timeAndDistanceInfo?.distance.text}</Text>
             </View>
 
             <Text style={tw`text-xl`}>£0.00</Text>
@@ -94,3 +99,4 @@ const RideOptionsCard = () => {
 };
 
 export default RideOptionsCard;
+``;

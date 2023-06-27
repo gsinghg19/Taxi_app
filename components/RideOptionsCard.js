@@ -77,6 +77,18 @@ const RideOptionsCard = () => {
           </TouchableOpacity>
         )}
       />
+      <View>
+        <TouchableOpacity
+          disabled={!selected}
+          style={tw`bg-black py-6 rounded-full ml-5 mr-5 ${
+            !selected && `bg-gray-300`
+          }`}
+        >
+          <Text style={tw`text-white text-center`}>
+            Choose {selected?.title}
+          </Text>
+        </TouchableOpacity>
+      </View>
     </SafeAreaView>
   );
 };

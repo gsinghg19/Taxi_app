@@ -1,8 +1,12 @@
 import React, { useEffect, useRef } from "react";
 import MapView, { Marker } from "react-native-maps";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import tw from "twrnc";
-import { selectDestination, selectOrigin } from "../slices/navSlice";
+import {
+  selectDestination,
+  selectOrigin,
+  setTravelTimeInformation,
+} from "../slices/navSlice";
 import MapViewDirections from "react-native-maps-directions";
 import { Google_Map_Api_Key } from "@env";
 
@@ -10,6 +14,7 @@ const Map = () => {
   const origin = useSelector(selectOrigin);
   const destination = useSelector(selectDestination);
   const mapRef = useRef(null);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     if (!origin || !destination) return;
@@ -22,6 +27,20 @@ const Map = () => {
       },
     });
   }, [origin, destination]);
+
+  useEffect(() => {
+    if (!origin || !destination) return;
+    const getTravelTime = async () => {
+      fetch(
+        `https://maps.googleapis.com/maps/api/distancematrix/json?destinations=${destination.description}&origins=${origin.description}&units=imperial&key=${Google_Map_Api_Key}`
+      )
+        .then((res) => res.json())
+        .then((data) => {
+          dispatch(setTravelTimeInformation(data.rows[0].elements[0]));
+        });
+    };
+    getTravelTime();
+  }, [origin, destination, Google_Map_Api_Key]);
 
   return (
     <MapView
@@ -43,10 +62,10 @@ const Map = () => {
           apikey={Google_Map_Api_Key}
           strokeWidth={2}
           strokeColor="blue"
-          onReady={(result) => {
-            console.log(`Distance: ${result.distance} km.`);
-            console.log(`Duration: ${result.duration} mins.`);
-          }}
+          // onReady={(result) => {
+          //   console.log(`Distance: ${result.distance} km.`);
+          //   console.log(`Duration: ${result.duration} mins.`);
+          // }}
         />
       )}
 

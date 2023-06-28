@@ -99,4 +99,3 @@ const RideOptionsCard = () => {
 };
 
 export default RideOptionsCard;
-``;

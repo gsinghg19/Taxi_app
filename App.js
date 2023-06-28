@@ -27,7 +27,7 @@ export default function App() {
           type: "error",
           text1: "No Internet Connection",
           visibilityTime: 3000,
-          autoHide: true,
+          autoHide: false,
         });
       } else if (state.isConnected) {
         Toast.show({
@@ -79,7 +79,11 @@ export default function App() {
               </Stack.Navigator>
             </KeyboardAvoidingView>
           </SafeAreaProvider>
-          <Toast position="top" ref={(ref) => Toast.setRef(ref)} />
+          <Toast
+            position="top"
+            topOffset={60}
+            ref={(ref) => Toast.setRef(ref)}
+          />
         </NavigationContainer>
       </Provider>
     </>

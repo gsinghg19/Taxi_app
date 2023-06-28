@@ -1,14 +1,6 @@
-import {
-  FlatList,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-  Image,
-} from "react-native";
+import { FlatList, Text, View, Image } from "react-native";
 import React, { useEffect, useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
-import tw from "twrnc";
 import { Card } from "@rneui/base";
 
 const RestaurantCard = () => {
@@ -41,9 +33,11 @@ const RestaurantCard = () => {
   return (
     <>
       {loading && (
-        <View>
-          <Text>Loading...</Text>
-        </View>
+        <SafeAreaView>
+          <View>
+            <Text>Loading...</Text>
+          </View>
+        </SafeAreaView>
       )}
       {data && (
         <FlatList

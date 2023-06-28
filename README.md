@@ -20,6 +20,8 @@ Dependencies used are:
 - Google Maps API
 - Google Places API
 - Google Distance Matrix API
+- React-native-toast-message
+- React-native-community/netinfo
 
 To run this app locally on your machine, pull down this repo and run
 

@@ -4,6 +4,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import tw from "twrnc";
 import OrderCard from "../components/OrderCard";
 import RestaurantCard from "../components/RestaurantCard";
+import Map from "../components/Map";
 
 const OrderScreen = () => {
   const Stack = createNativeStackNavigator();

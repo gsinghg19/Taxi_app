@@ -24,7 +24,7 @@ const priceData = [
     title: "premium",
     Additional_Information: "Maximum 4 per vehicle.",
     screen: "PaymentScreen",
-    multiplier: 1.5,
+    multiplier: 1.3,
     image:
       "https://www.shutterstock.com/image-illustration/berlin-germany-november-17-2022-600w-2267012947.jpg",
   },
@@ -33,11 +33,13 @@ const priceData = [
     title: "Large groups",
     Additional_Information: "Maximum 10 per vehicle.",
     screen: "PaymentScreen",
-    multiplier: 2.4,
+    multiplier: 1.6,
     image:
       "https://www.shutterstock.com/image-illustration/silver-suv-600w-703459780.jpg",
   },
 ];
+
+const BUSY_SURGE_CHARGE_RATE_MULTIPLIER = 1.3;
 
 const RideOptionsCard = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -74,11 +76,21 @@ const RideOptionsCard = () => {
             />
             <View>
               <Text style={tw`font-semibold text-lg`}>{title}</Text>
-              <Text>{timeAndDistanceInfo?.duration.text}</Text>
-              <Text>{timeAndDistanceInfo?.distance.text}</Text>
+              <Text>{timeAndDistanceInfo?.duration?.text}</Text>
+              <Text>{timeAndDistanceInfo?.distance?.text}</Text>
             </View>
 
-            <Text style={tw`text-xl`}>£0.00</Text>
+            <Text style={tw`text-xl`}>
+              {new Intl.NumberFormat("en-gb", {
+                style: "currency",
+                currency: "GBP",
+              }).format(
+                (timeAndDistanceInfo?.duration.value *
+                  BUSY_SURGE_CHARGE_RATE_MULTIPLIER *
+                  multiplier) /
+                  100
+              )}
+            </Text>
           </TouchableOpacity>
         )}
       />

@@ -7,12 +7,11 @@ import RideOptionsCard from "./components/RideOptionsCard";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { KeyboardAvoidingView, Text, View } from "react-native";
+import { KeyboardAvoidingView } from "react-native";
 import { useState } from "react";
 import { useEffect } from "react";
 import NetInfo from "@react-native-community/netinfo";
 import Toast from "react-native-toast-message";
-import tw from "twrnc";
 
 export default function App() {
   const Stack = createNativeStackNavigator();

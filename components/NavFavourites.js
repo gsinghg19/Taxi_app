@@ -11,6 +11,7 @@ const NavFavData = [
     title: "Work",
     description: "Lets go Home",
     icon: "briefcase",
+    location: "4242 workington road",
   },
   {
     id: "2",
